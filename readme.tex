@@ -125,7 +125,7 @@
 
 \section{文档类}
 \par
-\LaTeX , pdf\LaTeX, \XeLaTeX, Lua\LaTeX, up\LaTeX 有对\verb|UTF-8|字符集的支持, 但默认仅显示\verb|ASCII|字符集, 需要额外的调用才会生成\verb|UTF-8|字符集. 其中\XeLaTeX 与Lua\LaTeX 支持从编译者的电脑字体库中调用字体, 而别的均依赖\LaTeX 内的字库. 而中文目前已经几乎完全基于\verb|UTF-8|, 这意味着我们只需要调动相应的字符集就可以让\LaTeX 输出含中文的\verb|.pdf|, 也就是\verb|ctex|宏包. 它需要在导言区被调用. 
+%\LaTeX , pdf\LaTeX, \XeLaTeX, Lua\LaTeX, up\LaTeX 有对\verb|UTF-8|字符集的支持, 但默认仅显示\verb|ASCII|字符集, 需要额外的调用才会生成\verb|UTF-8|字符集. 其中\XeLaTeX 与Lua\LaTeX 支持从编译者的电脑字体库中调用字体, 而别的均依赖\LaTeX 内的字库. 而中文目前已经几乎完全基于\verb|UTF-8|, 这意味着我们只需要调动相应的字符集就可以让\LaTeX 输出含中文的\verb|.pdf|, 也就是\verb|ctex|宏包. 它需要在导言区被调用. 
 \par
 \verb|ctex|在不同的编译引擎中会自动选择不同方式实现中文: 它内部包含了不同的宏包, 详见其\href{http://mirrors.ctan.org/language/chinese/ctex/ctex.pdf}{官方文档}. 换言之, 若单独调用其启用中文的核心组件, 也可以实现中文. 但是目录页等字样会保持英文: 对它们的翻译基于\verb|ctex|. 东亚文字的数字化开发一般都是一同进行, 所以也可以通过类似的方法轻量化实现日文, 此处不再赘述.
 
