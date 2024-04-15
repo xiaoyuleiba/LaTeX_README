@@ -100,13 +100,13 @@ pdfkeywords={XeLaTeX, upLaTeX, ctex, macro, xeCJK}
 特殊命令目前仅需要一个加密命令. 但这个加密命令对复制进行的限制, 目前发现只对网页浏览器等自带的pdf浏览器有效; 若使用\verb|Skim|, \verb|SumatraPDF|等查看则不受限制. 本文仅使用了加密这一条特殊命令. 加密命令的详细使用方法见\href{https://blog.si-on.top/2021/LaTeX-Encrypt/}{此处}
 \clearpage
 \section{文档类}
-\par
+
 \LaTeX , pdf\LaTeX, \XeLaTeX, Lua\LaTeX, up\LaTeX 有对\verb|UTF-8|字符集的支持, 但默认仅显示\verb|ASCII|字符集, 需要额外的调用才会生成\verb|UTF-8|字符集. 其中\XeLaTeX 与Lua\LaTeX 支持从编译者的电脑字体库中调用字体, 而别的均依赖\LaTeX 内的字库. 而中文目前已经几乎完全基于\verb|UTF-8|, 这意味着我们只需要调动相应的字符集就可以让\LaTeX 输出含中文的\verb|.pdf|, 也就是\verb|ctex|宏包. 它需要在导言区被调用. 
-\par
+
 \verb|ctex|在不同的编译引擎中会自动选择不同方式实现中文: 它内部包含了不同的宏包, 详见其\href{http://mirrors.ctan.org/language/chinese/ctex/ctex.pdf}{官方文档}. 换言之, 若单独调用其启用中文的核心组件, 也可以实现中文. 但是目录页等字样会保持英文: 对它们的翻译基于\verb|ctex|. 东亚文字的数字化开发一般都是一同进行, 所以也可以通过类似的方法轻量化实现日文, 此处不再赘述.
-\par
+
 但是这个\verb|.tex|文件的导言区内并没有调用\verb|ctex|或其他调用中文的宏包, 是因为使用了\verb|ctex|文档类之\verb|ctexart|. 另外还有3种\verb|ctex|文档类: \verb|ctexrep|, \verb|ctexbook|, \verb|ctexbeamer|. 它们分别对应了英语格式的\verb|article|, \verb|report|, \verb|book|, \verb|beamer|并有对全角字符的格式优化. \verb|ctex|文档类现已集成于国际各主流\LaTeX 发行版基础组件中.
-\par
+
 文档类文件一般包含在基础组件内. 若要向学术期刊投稿, 需要按照他们模板制作文档, 此时他们会提供\LaTeX 模板文件, 类比定义了\verb|ctexart|的文件. 若在导言区填入了一个非系统自带的, 则这个格式定义文件, \verb|.cls|文件, 须和文档在同一个文件夹内. 一般学术期刊提供的模板不仅仅是\verb|.cls|文件, 是一个还包括了更多的样式定义文件的压缩包, 故而推荐将其解压后直接在其文件夹内部进行文档编辑与编译.
 \clearpage
 \section{常用功能}
@@ -129,7 +129,7 @@ pdfkeywords={XeLaTeX, upLaTeX, ctex, macro, xeCJK}
 \end{spacing} 
 \end{itemize}
 \subsection{特殊命令$\sim$导言区}
-\par
+
 各具体设定代码详见源文件. 自上到下各代码分别代表着:
 \begin{spacing}{1}
 	\begin{enumerate}
@@ -192,14 +192,14 @@ pdfkeywords={XeLaTeX, upLaTeX, ctex, macro, xeCJK}
 \end{enumerate}
 \end{enumerate}
 \end{spacing}
-\,\\\,\par
+\,\\\,
 以上为导言区的大体设定, 除了基于对宏包的设定需要在其对应宏包之后, 而其余导言区代码则\textcolor{red}{无顺序以及缩进需求}.
 \clearpage
 \subsection{正文区}
 \subsubsection{顶级结构, 目录与标题}
-\par
+
 在\verb|\begin{document}|后, 即为文章内容的开始, 标题与目录自然也算是文章的内容. 而整个文章(代码)的结束标志则是\verb|\end{document}|
-\par
+
 紧随\verb|\begin{document}|, 我们能看到如下的代码:
 \begin{spacing}{1}
 	\begin{verbatim}
@@ -224,25 +224,25 @@ pdfkeywords={XeLaTeX, upLaTeX, ctex, macro, xeCJK}
 在写作时, 时常需要进行切换自然段, 顶格另起一行, 强行空行等操作. 以下为其对应样式
 \begin{itemize}
 	\item 切换自然段
-	\subitem 在原生文档类(\verb|article|等)中, 也可以使用\verb|\paragraph{自然段名}|来新起一段. 此文件基于\verb|ctexart|生成, 故无法演示. 两种方式英语文章中可以使用, 但是中文日文则不推荐有自然段名;
-	\subitem \verb|\paragraph{自然段名}|会拉大和上一段的间距, 哪怕不写自然段名. 如果想特意拉大段间距, 则可以全部使用\verb|\paragraph{}|;
-	\subitem \verb|\par|没有自然段名, 而且貌似没有哪里人喜欢用自然段名, 故而这个足够;
+	\subitem 在原生文档类(\verb|article|等)中, 也可以使用\verb|agraph{自然段名}|来新起一段. 此文件基于\verb|ctexart|生成, 故无法演示. 两种方式英语文章中可以使用, 但是中文日文则不推荐有自然段名;
+	\subitem \verb|agraph{自然段名}|会拉大和上一段的间距, 哪怕不写自然段名. 如果想特意拉大段间距, 则可以全部使用\verb|agraph{}|;
+	\subitem \verb||没有自然段名, 而且貌似没有哪里人喜欢用自然段名, 故而这个足够;
 	\subitem 以下为效果实例.
 \end{itemize}
 \begin{framed}
-	\par 这是一段
-	\par 这是另一段
-	\paragraph{自然段名} 这是新一段
-	\paragraph{} 没有自然段名
-	\par 这是又一段
+	 这是一段
+	 这是另一段
+	agraph{自然段名} 这是新一段
+	agraph{} 没有自然段名
+	 这是又一段
 \end{framed}
 \begin{itemize}
 	\item 顶格另起一行
 	\subitem 以下为效果实例.
 \end{itemize}
 \begin{framed}
-	\par 这是一段\\顶格新起一行
-	\par 这是另一段
+	 这是一段\\顶格新起一行
+	 这是另一段
 	\\顶格再新起一行
 	\\
 	顶格又新起一行
@@ -253,10 +253,10 @@ pdfkeywords={XeLaTeX, upLaTeX, ctex, macro, xeCJK}
 	\subitem 以下为效果实例.
 \end{itemize}
 \begin{framed}
-	\par 这是一段\\顶格新起一行
+	 这是一段\\顶格新起一行
 	\\\,\\\,\\
 	空两行然后顶格又新起一行
-	\par 这是另一段
+	 这是另一段
 \end{framed}
 \begin{itemize}
 	\item 特殊符号
@@ -574,21 +574,21 @@ steam (^) ->[sky][winter] {($\pm$)-}$cis/trans$
 \clearpage
 \section{注意事项}
 \subsection{编译一篇文章}\label{compile}
-\par
+
 中文环境下推荐使用\XeLaTeX 编译. 
-\par
+
 因为\LaTeX 的特性, 一个\verb|.tex|文件在第一次编译时仅会导入元素加初步排版. 一些基于文章结构的精细操作, 例如超链接与目录的生成, 则不会完成, 须编译第二次.
-\par
+
 若一个文章有参考文献, 则须在第一次编译后再使用\verb|BibTeX|引擎编译其参考文献列表: 编译\verb|.tex|文件会生成生成记载了结构信息的\verb|.aux|文件, \verb|BibTeX|引擎会对其内容做出反应, 去找到参考文献数据, 再提取其中的数据. 现在有了新的数据, 按照刚刚所说的, 我们又需要编译2次这个\verb|.tex|文件, 才能把参考文献数据导入并排列好.
-\par 也就是总计要编译四次: \XeLaTeX$\rightarrow$\verb|BibTeX|$\rightarrow$\XeLaTeX$\rightarrow$\XeLaTeX$\rightarrow$我们所需的\verb|.pdf|文件
+ 也就是总计要编译四次: \XeLaTeX$\rightarrow$\verb|BibTeX|$\rightarrow$\XeLaTeX$\rightarrow$\XeLaTeX$\rightarrow$我们所需的\verb|.pdf|文件
 \subsection{处理日语}
-\par
+
 处理日语时, 可以用日本人在维护的, 原生支持日语的p\LaTeX 和up\LaTeX 引擎编译. 而因为其中只有up\LaTeX 原生支持\verb|UTF-8|, 故而也可以用它编译\verb|ctex|文档类.
-\par
+
 日本人最主流的标准文档格式, \href{https://texwiki.texjp.org/?jsclasses}{js系列}, 仅可被p\LaTeX 和up\LaTeX 识别. 而这两个引擎有别于中文最常使用的\XeLaTeX, 它们并不直接生成\verb|.pdf|, 而是生成一个作用类似于``pdf生成指导''的\verb|dvi|文件, 然后再跑一遍\verb|dvi2pdf|命令, 才能得到\verb|.pdf|. 
-\par
+
 p\LaTeX 和up\LaTeX 对内容的导入与排列逻辑与别的引擎相同, 故其也须\hyperref[compile]{多次编译}才能得到完成数据导入再排版. 但是, 它需要在最后再加上一次\verb|dvi2pdf|. 目前主要使用\verb|dvipdfmx|作为\verb|.pdf|生成器. 这其实是一种相对传统的\LaTeX 编译方式, 但是过于传统.
-\par
+
 目前的国际主流是\LaTeX, pdf\LaTeX 与\XeLaTeX 这三个引擎\footnote{最新的Lua\LaTeX 还很慢, 故而``不受待见''}, 故而对于极其小众的日本引擎, 多数宏包是默认不按照其特性工作的: 需要在文档类处进行标注:
 \begin{itemize}
 	\item 中文使用\verb|\documentclass[a4paper,titlepage]{ctexart}|, 其中:\label{titlepage}
@@ -674,7 +674,7 @@ p\LaTeX 和up\LaTeX 对内容的导入与排列逻辑与别的引擎相同, 故�
 	{\tiny\input{sheet}}
 \end{minipage}
 \end{table}
-	\par
+	
 	在这里可以做个实验: 如果源代码中\verb|\hfill|的上下有空行, 则两者马上会错开到上下布局. 可见虽说\LaTeX 整体对缩进和空格不敏感\footnote{比Python强}, 但还是尽量标准一些写代码比较好.
 	\\\,\\
 	\verb|\hfill|上空行:
