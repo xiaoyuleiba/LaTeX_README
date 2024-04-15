@@ -121,7 +121,6 @@
 \subsection*{特殊命令}
 特殊命令目前仅需要一个加密命令. 但这个加密命令对复制进行的限制, 目前发现只对网页浏览器等自带的pdf浏览器有效; 若使用\verb|Skim|, \verb|SumatraPDF|等查看则不受限制. 本文仅使用了加密这一条特殊命令. 加密命令的详细使用方法见\href{https://blog.si-on.top/2021/LaTeX-Encrypt/}{此处}
 \clearpage
-
 \section{文档类}
 \par
 \LaTeX , pdf\LaTeX, \XeLaTeX, Lua\LaTeX, up\LaTeX 有对\verb|UTF-8|字符集的支持, 但默认仅显示\verb|ASCII|字符集, 需要额外的调用才会生成\verb|UTF-8|字符集. 其中\XeLaTeX 与Lua\LaTeX 支持从编译者的电脑字体库中调用字体, 而别的均依赖\LaTeX 内的字库. 而中文目前已经几乎完全基于\verb|UTF-8|, 这意味着我们只需要调动相应的字符集就可以让\LaTeX 输出含中文的\verb|.pdf|, 也就是\verb|ctex|宏包. 它需要在导言区被调用. 
