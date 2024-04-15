@@ -123,18 +123,13 @@
 \LaTeX , pdf\LaTeX, \XeLaTeX, Lua\LaTeX, up\LaTeX 有对\verb|UTF-8|字符集的支持, 但默认仅显示\verb|ASCII|字符集, 需要额外的调用才会生成\verb|UTF-8|字符集. 其中\XeLaTeX 与Lua\LaTeX 支持从编译者的电脑字体库中调用字体, 而别的均依赖\LaTeX 内的字库. 而中文目前已经几乎完全基于\verb|UTF-8|, 这意味着我们只需要调动相应的字符集就可以让\LaTeX 输出含中文的\verb|.pdf|, 也就是\verb|ctex|宏包. 它需要在导言区被调用. 
 \par
 \verb|ctex|在不同的编译引擎中会自动选择不同方式实现中文: 它内部包含了不同的宏包, 详见其\href{http://mirrors.ctan.org/language/chinese/ctex/ctex.pdf}{官方文档}. 换言之, 若单独调用其启用中文的核心组件, 也可以实现中文. 但是目录页等字样会保持英文: 对它们的翻译基于\verb|ctex|. 东亚文字的数字化开发一般都是一同进行, 所以也可以通过类似的方法轻量化实现日文, 此处不再赘述.
-
-
 \par
 但是这个\verb|.tex|文件的导言区内并没有调用\verb|ctex|或其他调用中文的宏包, 是因为使用了\verb|ctex|文档类之\verb|ctexart|. 另外还有3种\verb|ctex|文档类: \verb|ctexrep|, \verb|ctexbook|, \verb|ctexbeamer|. 它们分别对应了英语格式的\verb|article|, \verb|report|, \verb|book|, \verb|beamer|并有对全角字符的格式优化. \verb|ctex|文档类现已集成于国际各主流\LaTeX 发行版基础组件中.
 \par
 文档类文件一般包含在基础组件内. 若要向学术期刊投稿, 需要按照他们模板制作文档, 此时他们会提供\LaTeX 模板文件, 类比定义了\verb|ctexart|的文件. 若在导言区填入了一个非系统自带的, 则这个格式定义文件, \verb|.cls|文件, 须和文档在同一个文件夹内. 一般学术期刊提供的模板不仅仅是\verb|.cls|文件, 是一个还包括了更多的样式定义文件的压缩包, 故而推荐将其解压后直接在其文件夹内部进行文档编辑与编译.
-
 \clearpage
-
 \section{常用功能}
 本文采用了适用于大部分化学类文章编写的环境. 从人类认知逻辑上, 我们可以把一个\LaTeX 源代码分为以下几个区域\footnote{大部分我自己取的名, 或者对官方译文有化用}: 
-
 \begin{itemize}
 	\begin{spacing}{1}
 	\item 导言区:
@@ -153,7 +148,6 @@
 	\end{itemize}   
 		\end{spacing} 
 \end{itemize}
-
 \subsection{特殊命令$\sim$导言区}
 \par
 各具体设定代码详见源文件. 自上到下各代码分别代表着:
@@ -191,10 +185,8 @@
 		\item 调用表格样式宏包\verb|tabularx|
 		\item 调用表格背景色包\verb|colortbl|: 基于此宏包, 可表示\verb|Excel|中的背景色
 	\end{enumerate}
-	
 	\item 插件调用区:
-	\begin{enumerate}
-				
+	\begin{enumerate}			
 		\item 调用图片插入宏包\verb|graphics|;
 		\item 调用子图插入宏包\verb|subfigure|; 
 		\item 调用浮动元素宏包\verb|float|: 多数时候没什么用, 原因后述;
@@ -248,13 +240,8 @@
 		\item 强行设定此页的页码为\verb|0|;
 		\item 此页余下留白, 即之后的内容新起一页.
 	\end{enumerate}
-
-
 \subsubsection{行文操作}
 在写作时, 时常需要进行切换自然段, 顶格另起一行, 强行空行等操作. 以下为其对应样式
-
-
-
 \begin{itemize}
 \item 切换自然段
 \subitem 在原生文档类(\verb|article|等)中, 也可以使用\verb|\paragraph{自然段名}|来新起一段. 此文件基于\verb|ctexart|生成, 故无法演示. 两种方式英语文章中可以使用, 但是中文日文则不推荐有自然段名;
@@ -262,7 +249,6 @@
 \subitem \verb|\par|没有自然段名, 而且貌似没有哪里人喜欢用自然段名, 故而这个足够;
 \subitem 以下为效果实例.
 \end{itemize}
-
 \begin{framed}
 \par 这是一段
 \par 这是另一段
@@ -270,14 +256,10 @@
 \paragraph{} 没有自然段名
 \par 这是又一段
 \end{framed}
-
-
 \begin{itemize}
 \item 顶格另起一行
 \subitem 以下为效果实例.
-
 \end{itemize}
-
 \begin{framed}
 \par 这是一段\\顶格新起一行
 \par 这是另一段
@@ -285,8 +267,6 @@
 \\
 顶格又新起一行
 \end{framed}
-
-
 \begin{itemize}
 \item 插入空行
 	\subitem \LaTeX 貌似原则上不允许在没有内容的一行文字下再空一行, 也就是禁制连续空行. 但是在\verb|ctex|文档类下是可以的. 最保险的办法是在新开的一行里加一个\hyperref[spacing]{空白元素}, 然后再空行, 便是符合规则的;
