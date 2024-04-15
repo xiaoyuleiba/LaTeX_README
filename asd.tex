@@ -3,7 +3,7 @@
 
 \usepackage[hyperref=true,backend=biber,url=false,doi=true,dateabbrev=true,backref=true,style=numeric-comp,maxnames=15]{biblatex}
 \DeclareFieldFormat{biblabeldate}{\mkbibparens{\mkbibbold{#1}}}
-\DeclareFieldFormat[article,periodical]{date}{\mkbibbold{#1}}
+\DeclareFieldFormat[article,periodical]{date,volume}{\mkbibbold{#1}}
 \renewbibmacro{in:}{}
 \addbibresource{reference.bib}%导入bib文件。
 
