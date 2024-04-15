@@ -1,0 +1,17 @@
+\documentclass{ctexart}%文档类 %导言区开始:
+
+
+\usepackage[hyperref=true,backend=biber,url=false,doi=true,dateabbrev=true,backref=true,style=numeric-comp,maxnames=15]{biblatex}
+\DeclareFieldFormat{biblabeldate}{\mkbibparens{\mkbibbold{#1}}}
+\DeclareFieldFormat[article,periodical]{volume}{\mkbibbold{#1}}
+\renewbibmacro{in:}{}
+\addbibresource{reference.bib}%导入bib文件。
+
+\begin{document}%正文区开始:
+	\tableofcontents\newpage
+	\section{引用说明}
+	上标且带方括号的引用标记\cite{ChenXiangDong2015,alum}
+
+	\newpage
+	\printbibliography[title=参考文献,heading=bibintoc]
+\end{document}
