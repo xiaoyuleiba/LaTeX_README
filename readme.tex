@@ -42,7 +42,11 @@
 	pdfkeywords={XeLaTeX, upLaTeX, ctex, macro, xeCJK}
 }
 
-
+\usepackage[hyperref=true,backend=biber,url=false,doi=true,dateabbrev=true,backref=true,style=numeric-comp,maxnames=15]{biblatex}
+\DeclareFieldFormat{biblabeldate}{\mkbibparens{\mkbibbold{#1}}}
+\DeclareFieldFormat[article,periodical]{date}{\mkbibbold{#1}}
+\DeclareFieldFormat[article,periodical]{volume}{\mkbibbold{#1}}
+\DeclareFieldFormat[article,periodical]{number}{\mkbibbold{#1}}
 
 
 \title{README}
@@ -696,8 +700,8 @@
 	
 	
 	\clearpage
-	\bibliographystyle{unsrt} 
-	\bibliography{reference.bib}
+%	\bibliographystyle{unsrt} 
+%	\bibliography{reference.bib}
 	\clearpage
 	\begin{appendices}
 		\def\thesection{附录\Alph{section}}
