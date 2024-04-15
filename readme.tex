@@ -30,6 +30,8 @@
 \usepackage{subfigure} 
 \usepackage{float} 
 \usepackage{footmisc}
+
+\usepackage[hyperref=true,backend=biber,url=false,doi=true,dateabbrev=true,backref=true,style=numeric-comp,maxnames=15]{biblatex}
 \usepackage{hyperref}
 \hypersetup{
 	bookmarksnumbered=true,
@@ -41,14 +43,13 @@
 	pdfsubject={LaTeX简明手册},
 	pdfkeywords={XeLaTeX, upLaTeX, ctex, macro, xeCJK}
 }
-
-\usepackage[hyperref=true,backend=biber,url=false,doi=true,dateabbrev=true,backref=true,style=numeric-comp,maxnames=15]{biblatex}
 \DeclareFieldFormat{biblabeldate}{\mkbibparens{\mkbibbold{#1}}}
 \DeclareFieldFormat[article,periodical]{date}{\mkbibbold{#1}}
 \DeclareFieldFormat[article,periodical]{volume}{\mkbibbold{#1}}
 \DeclareFieldFormat[article,periodical]{number}{\mkbibbold{#1}}
 \renewbibmacro{in:}{}
 \addbibresource{reference.bib}%导入bib文件
+
 
 \title{README}
 \author{xyx}
