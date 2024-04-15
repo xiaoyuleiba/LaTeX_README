@@ -1,5 +1,6 @@
-\documentclass[a4paper,titlepage]{ctexart}
+\documentclass[a4paper,titlepage]{article}
 %\documentclass[a4paper,titlepage,uplatex,dvipdfmx]{jsarticle}
+\usepackage{ctex}
 \special{pdf:encrypt ownerpw (1767325) length 128 perm 4}
 \linespread{1.5}
 \usepackage{siunitx}
@@ -23,23 +24,23 @@
 \usepackage{float} 
 \usepackage{footmisc}
 \usepackage[hyperref=true,backend=biber,url=false,doi=true,dateabbrev=true,backref=true,style=numeric-comp,maxnames=15]{biblatex}
-\usepackage{hyperref}
-\hypersetup{
-	bookmarksnumbered=true,
-colorlinks,
-linkcolor=blue,
-urlcolor=blue,
-citecolor=black,
-pdfauthor= {xyx},
-pdfsubject={LaTeX简明手册},
-pdfkeywords={XeLaTeX, upLaTeX, ctex, macro, xeCJK}
-}
 \DeclareFieldFormat{biblabeldate}{\mkbibparens{\mkbibbold{#1}}}
 \DeclareFieldFormat[article,periodical]{date}{\mkbibbold{#1}}
 \DeclareFieldFormat[article,periodical]{volume}{\mkbibbold{#1}}
 \DeclareFieldFormat[article,periodical]{number}{\mkbibbold{#1}}
 \renewbibmacro{in:}{}
 \addbibresource{reference.bib}%导入bib文件
+\usepackage{hyperref}
+\hypersetup{
+	bookmarksnumbered=true,
+	colorlinks,
+	linkcolor=blue,
+	urlcolor=blue,
+	citecolor=black,
+	pdfauthor= {xyx},
+	pdfsubject={LaTeX简明手册},
+	pdfkeywords={XeLaTeX, upLaTeX, ctex, macro, xeCJK}
+}
 \title{README}
 \author{xyx}
 \date{\today}
