@@ -173,7 +173,7 @@
 \begin{enumerate}	
 	\item 顶级命令区:
 	\begin{enumerate}
-		\item{加密pdf的特殊命令:} perm后的数字标识了开放的权限, 4为仅允许低质量打印: 点击打印按钮, 如果输出为一个新pdf会发现全部页面都被转化成了低分辨率图片; 2052为仅允许普通打印;此处省略了userpw项, 即打开文档时的密码.
+		\item{加密pdf的特殊命令:} perm后的数字标识了开放的权限, 4为仅允许低质量打印: 点击打印按钮, 如果输出为一个新pdf会发现全部页面都被转化成了低分辨率图片; 2052为仅允许普通打印;此处省略了userpw项, 即打开文档时的密码. 须注意: {\Huge Lua\LaTeX 貌似还对}
 		\item \verb|[|纸张类型+生成标题页\footnote{有则生成, 没有则报错}(+\LaTeX 编译引擎标识+dvi2pdf引擎标识 \footnote{此处仅能提示各组件对其优化,而不是用来指定引擎; 指定引擎另须以魔法注释标明,且须有编辑器支持; 一般仅在使用uplatex+dvipdfmx时须进行此标注,否则会有宏包各种报错})\verb|]|+\verb|{|文档类\verb|}|.
 		\begin{itemize}
 			\item 中文用\verb|[a4paper,titlepage]{ctex...}|;
