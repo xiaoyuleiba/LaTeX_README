@@ -474,8 +474,8 @@
 			\item 每一个 \verb*| | 符号表示一个半角空格, 而日语中常用的全角空格将会被忽视.
 		\end{itemize}
 	\item 列表
-		\subitem 举例环境分为带序号与否2种: \verb|itemize|(不带序号)和\verb|enumerate|(带序号).
-		\subitem 两种举例环境可相互混合嵌套: 每一种举例环境最大可以达到4层\footnote{4层itemize加4层enumerate后, 就不能再向其中套任何新的这两种环境了. 实际上只允许套到总计第6层, 但是套到第7和第8也只是报一个非致命错误, 输出文件没问题}, 因为只做了4种不同层级的标识符.
+		\subitem 列表环境分为带序号与否2种: \verb|itemize|(无序)和\verb|enumerate|(有序).
+		\subitem 两种列表环境可相互混合嵌套: 每一种举例环境最大可以达到4层\footnote{4层itemize加4层enumerate后, 就不能再向其中套任何新的这两种环境了. 实际上只允许套到总计第6层, 但是套到第7和第8也只是报一个非致命错误, 输出文件没问题}, 因为只做了4种不同层级的标识符.
 		\subitem 每一个例子还可以分为\verb|item|, \verb|subitem|, \verb|subsubitem|三层, 故逻辑上最高能套到24层. 
 		\clearpage
 		\subitem 以下为不完全示例:
